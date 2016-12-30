@@ -1,0 +1,7 @@
+Django
+Django-grappelli
+Django-filebrowser
+Pillow
+django-photologue
+pytz
+dj-static
