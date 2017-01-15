@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/lightbox.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}">
     <script type="text/javascript" charset="utf-8" async
             src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=3JqUfLvWRjkPC--Mc-KOI82wBR5SL-r6&amp;width=100%25&amp;height=631&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=false&amp;id=map-container"></script>
     <style>
@@ -28,13 +29,12 @@
         .vcenter {
             display: inline-block;
             vertical-align: middle;
-            float: none!important;
+            float: none !important;
         }
 
         body {
-            background: url({% static 'images/old-wood-texture-700px.jpg' %});
-            background-repeat: no-repeat;
             color: #dbd2bd;
+            position: relative;
         }
 
         .page {
@@ -43,6 +43,31 @@
             font-weight: normal;
             font-style: normal;
             font-stretch: normal;
+            position: relative;
+        }
+
+        .owl-carousel {
+            text-align: center;
+        }
+
+        .owl-dots {
+            display: inline-block;
+            margin: 66px auto 0 auto /*for centering the dots*/
+        }
+
+        .owl-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 100%;
+            background-color: #dbd2bd;
+            opacity: 0.5;
+            margin-right: 16px;
+            display: inline-block; /*for making them horizontal, if you want vertical then you can use- display: block*/
+        }
+
+        .owl-dot.active {
+            background: #dbd2bd;
+            opacity: 1;
         }
 
         .icon.place {
@@ -83,51 +108,166 @@
             background-size: 75px 68px;
             background-image: url({% static 'images/icons/food.svg' %});
         }
+
         {#        HEADER#}
-        header .topbar .address {
+        header {
+            background: url({% static 'images/old-wood-texture-140.jpg' %}) no-repeat 50% 0;
+            position: relative;
+        }
+
+        header .topbar .addresses {
+            position: absolute;
+            top: 42px;
+            left: 0;
+            bottom: 42px;
+        }
+
+        header .mask {
+            display: none;
+        }
+
+        header .topbar .address:not(:first-child) {
             margin-top: 7px;
         }
-        header .container {
+
+        header .topbar.container {
             padding: 0;
+            width: 100%;
+            max-width: 1156px;
+            overflow: hidden;
+            position: relative;
+            height: 140px;
         }
+
         header .topbar img {
             width: 420px;
             height: auto;
-            left: 126px;
-            position: relative;
+            top: 34px;
+            bottom: 34px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            position: absolute;
         }
+
         header .socials {
-            line-height: 72px;
-            height: 72px;
-            padding: 18px 0;
-            position: relative;
-            float: right!important;
+            position: absolute;
+            right: 0;
+            top: 52px;
+            bottom: 52px;
         }
+
+        header .socials a {
+            display: inline-block;
+            height: 100%;
+        }
+
         header .socials .icon {
             display: inline-block;
             width: 36px;
             height: 36px;
             background-size: 36px 36px;
         }
-        header .socials .icon +  .icon {
+
+        header .socials a:not(:first-child) {
             margin-left: 20px;
         }
-        header .addresses {
-            width: 231px;
+
+        .nav-menu {
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 25;
             position: relative;
+            text-align: center;
+
         }
-        header #slider .item {
-            height: 560px;
+
+        .nav-menu.affix {
+            position: fixed !important;
+            top: 0;
+            width: 100%;
+
         }
+
+        .nav-menu.affix-top {
+            top: -516px;
+            margin-bottom: -60px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0;
+            height: 60px;
+        }
+
+        .nav-menu .nav > li > a {
+            position: static;
+            display: block;
+            padding: 18px 36px;
+        }
+
+        .nav-menu ul li {
+            display: inline-block;
+        }
+
+        .nav-menu a {
+            font-family: OpenSans;
+            padding: 18px 36px;
+            font-size: 18px;
+            font-weight: 600;
+            font-style: normal;
+            font-stretch: normal;
+            text-align: center;
+            color: #fbcc04;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-menu li.active a, .nav-menu li.active a:hover, .nav-menu li.active a:focus {
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .nav-menu li a:hover, .nav-menu li a:focus {
+            background-color: transparent;
+        }
+
         header #slider.slider-wrap {
-            height: 560px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.75);
+            max-width: 1440px;
+            overflow: hidden;
+            margin: 0 auto;
         }
+
+        header #slider.slider-wrap .slide {
+            margin-top: -16px;
+            margin-bottom: -30px;
+            height: 560px;
+            object-fit: cover;
+        }
+
+        #responcemenu {
+            display: none;
+        }
+
         {#        FOOTER#}
         .page_footer {
-            padding: 16px 0;
-            background-image: url({% static 'images/old-wood-texture-700px.jpg' %});
-            background-position: 50% 100%;
-            background-repeat: no-repeat;
+            background: url({% static 'images/old-wood-texture-60px.jpg' %}) no-repeat 50% 0;
+            height: 60px;
+            position: relative;
+        }
+
+        .page_footer .container {
+            max-width: 1140px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0;
+            position: relative;
+            display: block;
+            height: 100%;
         }
 
         .page_footer .copyright {
@@ -137,6 +277,17 @@
             font-stretch: normal;
             line-height: 2.14;
             color: #ffffff;
+            position: absolute;
+            left: 0;
+            top: 30px;
+            margin-top: -1.07em;
+        }
+
+        .page_footer .email {
+            position: absolute;
+            right: 0;
+            top: 30px;
+            margin-top: -1.07em;
         }
 
         .page_footer .email a {
@@ -146,9 +297,28 @@
 
         {#        ABOUT#}
         #about {
-            padding: 68px 0 88px 0;
+            height: 300px;
             background-color: #33211a;
             box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.5);
+            border-top: 2px solid #583325;
+            position: relative;
+            z-index: 10;
+        }
+
+        #about .container {
+            width: 100%;
+            max-width: 1030px;
+            padding: 0;
+            position: absolute;
+            bottom: 88px;
+            left: 0;
+            right: 0;
+            top: 68px;
+        }
+
+        #about .container .col {
+            display: inline-block;
+            width: 315px;
         }
 
         #about h3 {
@@ -172,6 +342,7 @@
             width: 54px;
             background-image: url({% static 'images/icons/clock.svg' %});
             background-size: 54px 54px;
+            background-repeat: no-repeat;
             margin-left: auto;
             margin-right: auto;
 
@@ -180,36 +351,58 @@
         #chalk {
             padding-top: 60px;
             padding-bottom: 90px;
-            background: rgba(36, 35, 35, 0.2) url({% static 'images/chalkboard.jpg' %});
+            background: rgba(36, 35, 35, 0.2) url({% static 'images/chalkboard-700px.jpg' %}) no-repeat 50% 0;
             height: 700px;
             color: #fff;
-            -webkit-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.5);
-            -moz-box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.5);
-            box-shadow: 0px -5px 5px 0px rgba(0,0,0,0.5);
+            z-index: 10;
+            position: relative;
+            -webkit-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.9);
+            -moz-box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.9);
+            box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.9);
+        }
+
+        #chalk .container {
+            width: 100%;
+            max-width: 1095px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            top: 65px;
+            left: 0;
+            right: 0;
+            height: 100%;
+            max-height: 551px;
+            display: block;
+        }
+
+        #chalk .container .content {
+            height: 100%;
+            display: block;
         }
 
         #chalk .content img.student {
             width: 212px;
             height: 486px;
-            float: left;
+            position: absolute;
+            top: 65px;
         }
 
         #chalk .content img.students {
             width: 233px;
             height: 345px;
-            float: left;
-            top: 160px;
-            position: relative;
-            left: -60px;
+            right: 0;
+            top: 196px;
+            position: absolute;
         }
 
         #chalk .content .discount {
             font-family: "LC Chalk";
             font-size: 50px;
             line-height: 1.6;
-            margin-left: 46px;
-            margin-top: 37px;
-            float: left;
+            position: absolute;
+            left: 258px;
+            top: 109px;
+            margin-bottom: 0;
         }
 
         #chalk .content .discount .caption {
@@ -236,35 +429,56 @@
             line-height: 1.2;
             text-align: center;
             margin: 0;
+            color: #dbd2bd;
         }
 
         h3.section-title:before {
-            content: '~';
+            content: '';
             margin-right: 20px;
+            background-image: url("{% static 'images/scope-open.svg' %}");
+            background-size: 33px 7px;
+            width: 33px;
+            height: 7px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         h3.section-title:after {
-            content: '~';
+            content: '';
             margin-left: 20px;
+            background-image: url("{% static 'images/scope-close.svg' %}");
+            background-size: 33px 7px;
+            width: 33px;
+            height: 7px;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         {#        DESCRIPTION#}
         #description {
-            padding-top: 58px;
-            background-image: url({% static 'images/old-wood-texture-700px.jpg' %});
+            background: url({% static 'images/old-wood-texture-700px.jpg' %}) no-repeat 50% 0;
             height: 700px;
+            overflow: hidden;
+            position: relative;
         }
 
         #description .container {
-
-            height: 529px;
-            width: 1151px;
+            position: relative;
+            max-width: 1151px;
+            width: 100%;
+            overflow: hidden;
             padding-left: 0;
             padding-right: 0;
+            left: 0;
+            right: 0;
+            bottom: 115px;
+            top: 58px;
         }
 
         #description .caption {
-            width: 1004px;
+            max-width: 1004px;
+            overflow: hidden;
+            width: 100%;
             height: 80px;
             font-size: 30px;
             font-style: italic;
@@ -314,6 +528,10 @@
             margin-left: 50px;
         }
 
+        #description .container .caption p {
+            margin-bottom: 0;
+        }
+
         #description .welcome {
             width: 847px;
             height: 48px;
@@ -330,21 +548,26 @@
             margin-bottom: 0;
         }
 
-{#        GALLERY#}
+        {#        GALLERY#}
         #gallery {
-            background-image: url({% static 'images/old-wood-texture-1000px.jpg' %});
-            background-repeat: no-repeat;
+            background: url({% static 'images/old-wood-texture-1000px.jpg' %}), no-repeat 50% 0;
             height: 1000px;
             padding-top: 59px;
-
+            box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.5);
         }
+
         #gallery .item {
             height: 680px;
             width: 880px;
             padding: 40px;
             background-color: #33211a;
-	        box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.75);
         }
+
+        #gallery .owl-item.active.center {
+            border-top: 2px solid #583325;
+        }
+
         #gallery .item .title {
             width: 240px;
             height: 36px;
@@ -355,6 +578,7 @@
             left: 280px;
             padding: 7px 10px;
         }
+
         #gallery .item .title span {
             font-family: Ubuntu;
             font-size: 16px;
@@ -366,6 +590,7 @@
             width: 100%;
             margin: 0 auto;
         }
+
         #gallery .item .title:before, #gallery .item .title:after {
             content: '';
             width: 6px;
@@ -378,45 +603,54 @@
             -webkit-border-radius: 6px 6px 6px 6px;
             position: absolute;
         }
+
         #gallery .item .title:before {
             left: 7px;
             top: 15px;
         }
+
         #gallery .item .title:after {
             right: 7px;
             top: 15px;
         }
+
         #gallery .gallery-wrap {
             margin-top: 84px;
             height: 680px;
         }
-{#        MENU#}
+
+        {#        MENU#}
         .nav-tabs {
             border-bottom: 0;
         }
+
         .nav-tabs > li > a {
             border-radius: 0 0 0 0;
             border: 0;
         }
+
         #menu {
-            height: 840px;
             background-color: #33211a;
-            box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.5);
             padding-top: 60px;
+            border-top: 2px solid #583325;
+            padding-bottom: 147px;
         }
+
         #menu .container {
-            width: 1140px;
-            height: 709px;
+            max-width: 1140px;
+            width: 100%;
             margin-left: auto;
             margin-right: auto;
             padding: 0;
         }
+
         #menu ul.menus.nav {
             margin-top: 40px;
             width: 908px;
             height: 56px;
             margin-left: auto;
             margin-right: auto;
+            margin-bottom: 60px;
         }
 
         #menu .menus.nav li a {
@@ -432,31 +666,32 @@
             padding: 16px 10px;
             margin: 0;
             text-transform: uppercase;
-{#            border-image-source: linear-gradient(to bottom, #a65b2a, #8b4419);#}
             border-image-slice: 1;
             border: 2px solid #a65b2a;
             border-right-width: 0;
             border-left-width: 0;
             border-spacing: 0;
         }
-        #menu .menus.nav li a:hover {
-            background-image: linear-gradient(to bottom, #2d1d17, #2d1d17);
-            color: #d9caa8;
 
+        #menu .menus.nav li a:hover, #menu .menus.nav li a:focus {
+            background-image: linear-gradient(to bottom, #69331f, #6e3621);
+            color: #fbcc04;
         }
+
         #menu .menus.nav li.active a, #menu .menus.nav li.active a:hover, #menu .menus.nav li.active a:focus {
             background-image: linear-gradient(to bottom, #2d1d17, #2d1d17);
             color: #d9caa8;
-
+            cursor: pointer;
         }
+
         #menu .menus.nav li {
             width: 300px;
             text-align: center;
             height: 56px;
             margin-bottom: 2px;
             margin-top: 2px;
-
         }
+
         #menu .menus.nav li:not(:last-child) a:after {
             content: '';
             position: absolute;
@@ -466,6 +701,7 @@
             width: 1px;
             background-color: #a65b2a;
         }
+
         #menu .menus.nav li:first-child a {
             -webkit-border-top-left-radius: 100px;
             -webkit-border-bottom-left-radius: 100px;
@@ -476,6 +712,7 @@
             border-left-width: 2px;
 
         }
+
         #menu .menus.nav li:last-child a {
             -webkit-border-top-right-radius: 100px;
             -webkit-border-bottom-right-radius: 100px;
@@ -485,30 +722,78 @@
             border-bottom-right-radius: 100px;
             border-right-width: 2px;
         }
+
         #menu .menus.nav li:first-child {
             margin-left: 2px;
         }
+
         #menu .menus.nav li:last-child {
             margin-right: 2px;
         }
+
         #menu .categories {
             display: inline-block;
-            margin-top: 60px;
             left: 0px;
             width: 263px;
-            height: 389px;
             border-radius: 16px;
             background-color: rgba(0, 0, 0, 0.1);
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            padding: 30px 20px;
         }
+        #menu .dropdown {
+            display: none;
+        }
+        #menu .categories ul.nav {
+            padding-right: 10px;
+        }
+
+        #menu .categories li {
+        }
+
+        #menu .categories li a {
+            font-family: Ubuntu;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: italic;
+            font-stretch: normal;
+            line-height: 1.33;
+            color: #c1744f;
+            padding: 6px 10px;
+            border-radius: 4px 0 0 4px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #menu .categories li a:focus, #menu .categories li a:hover {
+            background: none;
+        }
+
+        #menu .categories li.active a, #menu .categories li.active a:focus, #menu .categories li.active a:hover {
+            background-color: #583325;
+            box-shadow: 8px 2px 14px 0 rgba(0, 0, 0, 0.35);
+        }
+
+        #menu .categories li.active::after {
+            content: "";
+            width: 0;
+            height: 100%;
+            border-style: solid;
+            border-width: 17px 0 17px 10px;
+            border-color: transparent transparent transparent #583325;
+            position: absolute;
+            right: -10px;
+            top: 0;
+        }
+
         #menu .table-area {
             display: inline-block;
-            width: 840px;
-            margin-left: 30px;
-        }
-        #menu .menu-items {
+            max-width: 840px;
             width: 100%;
+            margin-left: 30px;
+            overflow: hidden;
         }
+
         #menu .menu-items {
             font-family: Ubuntu;
             font-size: 16px;
@@ -516,23 +801,735 @@
             font-style: italic;
             font-stretch: normal;
             line-height: 2.5;
+            width: 100%;
             color: #d9caa8;
         }
+
         #menu .menu-items tr {
             height: 40px;
         }
+
         #menu .menu-items td {
-            border-bottom: solid 1px #974729;
+            border-bottom: solid 2px #974729;
         }
-        @media only screen and (max-width: 1440px) {
-            .topbar {
-                margin: 34px auto;
-                width: 1156px !important;
-                height: 72px;
+
+        #menu .menu-items td:first-child {
+            width: 45%;
+        }
+
+        #menu .menu-items td:nth-child(2) {
+            width: 27%;
+        }
+
+        #menu .menu-items td:nth-child(3) {
+            width: 28%;
+            text-align: right;
+        }
+
+        #menu .menu-items td.price:after {
+            content: ' руб.';
+        }
+
+        #menu .tooltip.in {
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+
+        #menu .tooltip.bottom .tooltip-arrow {
+            border-bottom-color: #6b3420;
+
+            top: 0;
+            left: 3em !important;
+            margin-left: -10px;
+            border-width: 0 10px 10px;
+        }
+
+        #menu .tooltip .tooltip-inner {
+            background-color: #6b3420;
+            box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.3);
+            text-align: left;
+            font-family: Ubuntu;
+            font-size: 18px;
+            font-weight: normal;
+            font-style: italic;
+            font-stretch: normal;
+            line-height: 1.44;
+            color: #d9caa8;
+            padding: 30px;
+            max-width: 840px;
+            white-space: pre-wrap;
+        }
+
+        {#        BUTTON TO TOP#}
+        .top {
+            display: inline-block;
+            height: 60px;
+            width: 60px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            /* image replacement properties */
+            overflow: hidden;
+            text-indent: 100%;
+            white-space: nowrap;
+            background: #a65b2a url("{% static 'images/icons/top-arrow.svg' %}") no-repeat center 50%;
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+            -moz-transition: opacity .3s 0s, visibility 0s .3s;
+            transition: opacity .3s 0s, visibility 0s .3s;
+        }
+
+        .top.is-visible, .top.fade-out, .no-touch .top:hover {
+            -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+            -moz-transition: opacity .3s 0s, visibility 0s 0s;
+            transition: opacity .3s 0s, visibility 0s 0s;
+        }
+
+        .top.is-visible {
+            /* the button becomes visible */
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .top.fade-out {
+            /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+            opacity: .5;
+        }
+
+        .no-touch .top:hover {
+            background-color: #e86256;
+            opacity: 1;
+        }
+
+        {#      MEDIUM#}
+        @media only screen and (max-width: 1240px) {
+            header .topbar.container {
+                width: 100%;
+                max-width: 941px;
+                overflow: hidden;
             }
 
-            #about {
+            header .topbar img {
+                left: 30px;
+            }
 
+            #description .container {
+                max-width: 945px;
+                bottom: 73px;
+            }
+
+            #description .container .caption {
+                max-width: 809px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #description .container .details .icon {
+                margin-left: 40px;
+            }
+
+            #description .container .details p {
+                margin-left: 42px;
+                margin-right: 0;
+                max-width: 779px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #description .container .welcome {
+                margin-top: 40px;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            #description .container .welcome p {
+                margin-left: 161px;
+            }
+
+            #menu .container {
+                max-width: 942px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #menu .categories {
+                width: 213px;
+                padding: 30px 10px;
+            }
+
+            #menu .categories li {
+
+            }
+
+            #menu .categories li a {
+
+            }
+
+            #menu .categories li.active a::after {
+
+            }
+
+            #menu .table-area {
+                max-width: 700px;
+                width: 100%;
+                margin-left: 20px;
+                overflow: hidden;
+            }
+
+            #menu .table-area td:first-child {
+                padding-left: 10px;
+            }
+
+            #menu .table-area td:last-child {
+                padding-right: 10px;
+            }
+
+            #menu .tooltip .tooltip-inner {
+                max-width: 700px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .page_footer .container {
+                width: 100%;
+                max-width: 945px;
+                overflow: hidden;
+
+            }
+        }
+
+        {#        SMALL#}
+        @media only screen and (max-width: 1020px) {
+            header .topbar.container {
+                max-width: 736px;
+                width: 100%;
+                overflow: hidden;
+                font-family: OpenSans;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                color: #dbd2bd;
+
+            }
+
+            header .topbar .addresses {
+                top: 42px;
+                bottom: 42px;
+            }
+
+            header .topbar .address:not(:first-child) {
+                margin-top: 17px;
+            }
+
+            header .topbar img {
+                width: 300px;
+                height: auto;
+                top: 44px;
+                bottom: 44px;
+            }
+
+            header .topbar .addresses .icon {
+                display: none;
+            }
+
+            #description .container {
+                max-width: 747px;
+                bottom: 73px;
+                font-family: OpenSans;
+                font-weight: normal;
+                font-style: italic;
+                font-stretch: normal;
+                letter-spacing: normal;
+                color: #dbd2bd;
+            }
+
+            #description .container .caption {
+                max-width: 610px;
+                width: 100%;
+                overflow: hidden;
+                margin: 0 41px 32px 30px;
+                font-size: 24px;
+                line-height: 1.25;
+                height: 100%;
+            }
+
+            #description .container .welcome p {
+                margin-left: 127px;
+            }
+
+            #description .container .quotes {
+                margin-top: -32px;
+            }
+
+            #description .row {
+                margin-top: 50px;
+            }
+
+            #description .container .details .icon {
+                margin-left: 10px;
+            }
+
+            #description .container .details p {
+                margin-left: 40px;
+                width: 611px;
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            #menu .container {
+                max-width: 736px;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #menu ul.menus.nav {
+                width: 736px;
+                height: 56px;
+            }
+
+            #menu .menus.nav li {
+                width: 243px;
+            }
+
+            #menu .categories li a {
+                font-family: Ubuntu;
+                font-size: 14px;
+                font-weight: 500;
+                font-style: italic;
+                font-stretch: normal;
+                line-height: 1.71;
+                letter-spacing: normal;
+            }
+
+            #menu .menus.nav li a {
+                font-family: Georgia;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.71;
+                letter-spacing: normal;
+                text-align: center;
+            }
+
+            #menu .categories li.active a {
+                color: #d9caa8;
+            }
+
+            #menu .categories {
+                width: 173px;
+            }
+
+            #menu .table-area {
+                max-width: 543px;
+                width: 100%;
+                overflow: hidden;
+                margin-left: 15px;
+            }
+
+            #menu .table-area .tooltip .tooltip-inner {
+                max-width: 543px;
+                width: 100%;
+            }
+
+            #menu .menu-items {
+                font-size: 14px;
+            }
+
+            #about h3 {
+                font-size: 18px;
+            }
+
+            #about .container .col {
+                width: 250px;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.57;
+                letter-spacing: normal;
+            }
+
+            .page_footer .container {
+                max-width: 736px;
+            }
+        }
+
+        {#        EXTRA SMALL#}
+        @media only screen and (max-width: 320px) {
+
+            header .container.topbar {
+                max-width: 320px;
+                height: 60px;
+                position: relative;
+                width: 100%;
+                overflow: visible;
+            }
+
+            header .addresses {
+                display: none;
+            }
+            header .topbar img {
+                width: 184px;
+                top: 14px;
+                bottom: 14px;
+                right: 0;
+                left: 0;
+            }
+
+            header .topbar .socials {
+                width: 100%;
+                display: inline-block;
+                top: 462px;
+                text-align: center;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                height: 36px;
+                z-index: 10;
+            }
+
+            header .slider-wrap {
+                z-index: 1;
+            }
+
+            header .mask {
+                display: block;
+                z-index: 2;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                background: black;
+                opacity: 0.5;
+            }
+
+            header .owl-item {
+
+            }
+
+            .nav-menu {
+                top: 79px;
+                right: 0;
+                left: 0;
+                width: 183px;
+                margin: 0 auto;
+                position: absolute !important;
+                background: none;
+            }
+
+            .nav-menu.affix-top {
+                position: absolute !important;
+                top: 79px;
+                right: 0;
+                left: 0;
+                width: 183px;
+                margin: 0 auto;
+            }
+
+            .nav-menu.affix {
+                position: absolute !important;
+                top: 79px;
+                right: 0;
+                left: 0;
+                width: 183px;
+                margin: 0 auto;
+                height: 300px;
+            }
+
+            .nav-menu ul.nav {
+                display: inline;
+            }
+
+            .nav-menu ul.nav li {
+                display: block;
+            }
+
+            .nav-menu ul.nav li.active a {
+                color: #ffffff;
+            }
+            #responcemenu {
+                display: block;
+
+            }
+            #responcemenu nav {
+                margin-bottom: 0;
+                background: rgba(0,0,0,0.9);
+
+            }
+            #responcemenu nav .navbar-brand {
+                color: #fbcc04;
+            }
+            #responcemenu.affix {
+                z-index: 35;
+                visibility: visible;
+                display: block;
+                position: fixed;
+                width: 100%;
+                top: 0;
+            }
+            #responcemenu.affix-top {
+                visibility: hidden;
+                position: relative;
+                top: -50px;
+                z-index: 0;
+                margin-bottom: -52px;
+            }
+
+            #description {
+                height: 580px;
+            }
+
+            #description .container {
+                max-width: 320px;
+                width: 100%;
+                overflow: hidden;
+                top: 40px;
+                left: 0;
+                right: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            #description .container .caption {
+                max-width: 290px;
+                width: 100%;
+                margin: 0;
+            }
+
+            #description .container .caption p {
+                padding: 0 10px;
+            }
+
+            #description .row {
+                margin-top: 40px;
+            }
+
+            #description .container .details .icon, #description .container .details p {
+                margin: 0;
+            }
+            #description .container .details {
+                max-width: 290px;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #description .container .details p {
+                width: 100%;
+                font-size: 18px;
+                margin-top: 40px;
+            }
+            #description .container .owl-dots {
+                margin-top: 5px;
+            }
+            #description .container .welcome {
+                display: none;
+            }
+            #description .container .quotes {
+                display: none;
+            }
+
+            #menu {
+                padding-top: 40px;
+                height: 540px;
+                position: relative;
+                padding-bottom: 0;
+            }
+            #menu .container {
+{#                position: relative;#}
+                height: 100%;
+                max-width: 282px;
+                width: 100%;
+            }
+            #menu ul.menus {
+                display: none;
+            }
+            #menu .categories {
+                width: 263px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                top: 172px;
+                position: absolute;
+                padding: 30px 20px;
+            }
+            #menu .table-area {
+                display: none;
+            }
+            #menu .dropdown {
+                display: block;
+                margin-top: 20px;
+                width: 282px;
+                height: 56px;
+                border-radius: 100px;
+                box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+                background-color: #2d1d17;
+                padding-top: 28px;
+                border: 2px solid #a65b2a;
+                border-image-slice: 1;
+
+            }
+            #menu .dropdown a {
+                text-decoration: none;
+                font-family: Georgia;
+                margin-top: -0.86em;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.71;
+                letter-spacing: normal;
+                text-align: center;
+                color: #fbcc04;
+                display: block;
+                width: 100%;
+                text-transform: uppercase;
+            }
+
+            #menu .dropdown a.dropdown-toggle:after {
+                top: 50%;
+                right: 20px;
+                margin-top: -5px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: rgba(251, 204, 4, 0);
+                border-top-color: #fbcc04;
+                border-width: 10px;
+            }
+
+            #menu .dropdown .dropdown-menu {
+                margin-top: 5px;
+                padding: 15px 0;
+                left: 25px;
+                right: 25px;
+                top: 50px;
+                background-image: linear-gradient(to bottom, #69331f, #6e3621);
+                box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            #menu .dropdown .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+                background: none;
+            }
+            #menu .dropdown .dropdown-menu li + li:before {
+                content: "";
+                height: 2px;
+                width: 80%;
+                margin: 0 10%;
+                display: inline-block;
+                background-color: #974729;
+            }
+            #menu .dropdown .dropdown-menu li a {
+                margin: 13px 0;
+            }
+            #gallery {
+                padding-top: 26px;
+            }
+
+            #chalk {
+                padding-top: 40px;
+                padding-bottom: 0;
+                height: 580px;
+            }
+            #chalk .student {
+                display: none;
+            }
+            #chalk .students {
+                display: none;
+            }
+            #chalk .content .discount {
+                top: 60px;
+                width: 290px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                font-size: 34px;
+                text-align: center;
+            }
+            #chalk .content .discount .details {
+                margin-right: 0;
+            }
+            #map {
+                height: 580px;
+            }
+            #about {
+                height: 602px;
+            }
+            #about .container {
+                top: 60px;
+            }
+            #about h3 {
+                margin: 0;
+            }
+            #about .col {
+                margin-bottom: 60px;
+            }
+            .page_footer {
+                height: 90px;
+                background-repeat: repeat-y;
+            }
+            .page_footer .container {
+                max-width: 320px;
+            }
+            .page_footer .container .copyright {
+                display: block;
+                position: relative;
+                top: 16px;
+                left: 0;
+                right: 0;
+                height: 30px;
+                margin: 0 auto;
+                text-align: center;
+            }
+            .page_footer .container .email {
+                display: block;
+                top: 15px;
+                position: relative;
+                left:0;
+                right: 0;
+                height: 30px;
+                margin: 0 auto;
+                text-align: center;
+                height: 30px;
+            }
+            #gallery {
+                height: 580px;
+                position: relative;
+            }
+            #gallery .gallery-wrap {
+                position: absolute;
+                top: 169px;
+                width: 100%;
+                max-width: 320px;
+                margin-top: 0;
+            }
+            #gallery .item {
+                height: 257px;
+                width: 320px;
+                padding: 20px 15px;
+                background-color: #252323;
+            }
+            #gallery .item .title {
+                display: none;
+            }
+
+            a.top {
+                height: 30px;
+                width: 30px;
+                right: 10px;
+                bottom: 30px;
             }
         }
     </style>
@@ -541,25 +1538,73 @@
 <div class="page">
     <header class="page_header">
         <div class="container topbar content-center">
-            <div class="addresses vcenter">
+            <div class="addresses">
                 <div class="address"><span class="icon place"></span><span>Кафе на Павелецкой</span></div>
                 <div class="address"><span class="icon place"></span>Кафе на Новодмитровской</div>
             </div>
-                <img src="{% static 'images/logo.png' %}" alt="PrimeFood" class="img-responsive vcenter">
-            <div class="vcenter socials">
-                <span class="icon instagram"></span>
-                <span class="icon vk"></span>
-                <span class="icon facebook"></span>
+            <img src="{% static 'images/logo.png' %}" alt="PrimeFood" class="img-responsive">
+            <div class="socials">
+                <a href="https://www.instagram.com/" target="_blank">
+                    <span class="icon instagram"></span>
+                </a>
+                <a href="https://vk.com/" target="_blank">
+                    <span class="icon vk"></span>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank">
+                    <span class="icon facebook"></span>
+                </a>
             </div>
         </div>
+        <div class="mask"></div>
         <div id="slider" class="slider-wrap owl-carousel">
             {% for photo in slidergallery %}
-                <div class="item">
-                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}" height="560">
-                </div>
+                <img src="{{ photo.get_slider_url }}" alt="{{ photo.title }}" class="slide">
             {% endfor %}
         </div>
     </header>
+    <div id="affix-menu" class="nav-menu">
+        <ul class="nav" role="tablist">
+            <li role="presentation">
+                <a class="smooth-scroll" href="#description">О нас</a>
+            </li>
+            <li role="presentation">
+                <a class="smooth-scroll" href="#menu">Меню</a>
+            </li>
+            <li role="presentation">
+                <a class="smooth-scroll" href="#gallery">Фотографии</a>
+            </li>
+            <li role="presentation">
+                <a class="smooth-scroll" href="#chalk">Акции</a>
+            </li>
+            <li role="presentation">
+                <a class="smooth-scroll" href="#map">Контакты</a>
+            </li>
+        </ul>
+    </div>
+    <div id="responcemenu">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">PrimeFoods</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a class="smooth-scroll" href="#description">О нас</a></li>
+                        <li><a class="smooth-scroll" href="#menu">Меню</a></li>
+                        <li> <a class="smooth-scroll" href="#gallery">Фотографии</a></li>
+                        <li><a class="smooth-scroll" href="#chalk">Акции</a></li>
+                        <li><a class="smooth-scroll" href="#map">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
     <div class="page_content">
         <section id="description">
             <div class="container">
@@ -571,23 +1616,28 @@
                     </p>
                 </div>
                 <div class="quotes">»</div>
-                <div class="details food row">
-                    <div class="icon food vcenter"></div><!--
-                    --><p class="text vcenter">Вас ждёт богатое разнообразие наивкуснейших мясных, рыбных и овощных блюд, выпечка,
+                <div class="detail">
+                    <div class="details food row item">
+                        <div class="icon food vcenter"></div><!--
+                    --><p class="text vcenter">Вас ждёт богатое разнообразие наивкуснейших мясных, рыбных и овощных
+                        блюд, выпечка,
                         десерты и напитки.</p>
-                </div>
-                <div class="details meal row">
-                    <div class="icon meal vcenter"></div><!--
+                    </div>
+                    <div class="details meal row item">
+                        <div class="icon meal vcenter"></div><!--
                     --><p class="text vcenter">Утром мы кормим полезными завтраками и подаем изысканный кофе
-                            по-восточному, днём к нам приходят за сытным ланчем, а вечером наше кафе превращается в
-                            место для вкусного ужина и задушевных бесед под бокал вина.</p>
-                </div>
-                <div class="details canteen row">
-                    <div class="icon canteen vcenter"></div><!--
-                    --><p class="text vcenter">С 8:00 до 17:00 Прайм Фуд работает как кафе-столовая, а с 17:00 до 22:00 действует
+                        по-восточному, днём к нам приходят за сытным ланчем, а вечером наше кафе превращается в
+                        место для вкусного ужина и задушевных бесед под бокал вина.</p>
+                    </div>
+                    <div class="details canteen row item">
+                        <div class="icon canteen vcenter"></div><!--
+                    --><p class="text vcenter">С 8:00 до 17:00 Прайм Фуд работает как кафе-столовая, а с 17:00 до 22:00
+                        действует
                         ресторанное обслуживание.
                     </p>
+                    </div>
                 </div>
+
                 <div class="welcome row">
                     <p>Ждём вас одних или в компании каждый день!</p>
                 </div>
@@ -596,20 +1646,33 @@
         <section id="menu">
             <div class="container">
                 <h3 class="section-title">Вкусно!</h3>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#drop-menu">
+                        Меню
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for title, value in menudata.items %}
+                            <li><a href="#menu-{{ value.id }}" data-toggle="pill">{{ title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <ul class="nav nav-tabs menus" role="tablist">
                     {% for title, value in menudata.items %}
-                        <li role="presentation"><a href="#menu-{{ value.id }}" aria-controls="menu-{{ value.id }}" role="tab" data-toggle="tab">{{ title }}</a></li>
+                        <li role="presentation"><a href="#menu-{{ value.id }}" aria-controls="menu-{{ value.id }}"
+                                                   role="tab" data-toggle="tab">{{ title }}</a></li>
                     {% endfor %}
                 </ul>
                 <div class="tab-content">
                     {% for title, value in menudata.items %}
-                        <div role="tabpanel" class="tab-pane" id="menu-{{ value.id }}">
+                        <div role="tabpanel" class="tab-pane fade" id="menu-{{ value.id }}">
                             <div class="categories">
                                 <ul class="nav nav-pills nav-stacked">
-                                    {%  for c, items in value.items %}
+                                    {% for c, items in value.items %}
                                         {% if c != 'id' %}
                                             <li role="presentation" class="">
-                                                <a href="#category-{{ items.id }}" aria-controls="category-{{ items.id }}" role="tab" data-toggle="pill">{{ c }}</a>
+                                                <a href="#category-{{ items.id }}"
+                                                   aria-controls="category-{{ items.id }}" role="tab"
+                                                   data-toggle="pill">{{ c }}</a>
                                             </li>
                                         {% endif %}
                                     {% endfor %}
@@ -621,13 +1684,16 @@
                                         <div role="tabpanel" class="tab-pane fade" id="category-{{ items.id }}">
                                             <table class="menu-items">
                                                 <tbody>
-                                                    {% for i in items.items %}
-                                                        <tr>
-                                                            <td>{{ i.title }}</td>
-                                                            <td>{{ i.amount }}</td>
-                                                            <td>{{ i.price }}</td>
-                                                        </tr>
-                                                    {% endfor %}
+                                                {% for i in items.items %}
+                                                    <tr data-toggle="tooltip" data-placement="bottom"
+                                                        title="{{ i.description }}">
+                                                        <td class="menu-item-name">
+                                                            {{ i.title }}
+                                                        </td>
+                                                        <td>{{ i.amount }}</td>
+                                                        <td class="price">{{ i.price }}</td>
+                                                    </tr>
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>
@@ -641,12 +1707,12 @@
         </section>
         <section id="gallery">
             <div class="container">
-                <h3 class="section-title">Выгодно!</h3>
+                <h3 class="section-title">Уютно!</h3>
             </div>
             <div class="gallery-wrap owl-carousel">
                 {% for photo in gallery %}
                     <div class="item">
-                        <img src="{{ photo.image.url }}" alt="{{ photo.title }}" width="800" height="600">
+                        <img src="{{ photo.get_gallery_url }}" alt="{{ photo.title }}">
                         <div class="title">
                             <span class="vcenter text-center">{{ photo.title }}</span>
                         </div>
@@ -656,9 +1722,9 @@
             </div>
         </section>
         <section id="chalk">
+            <h3 class="section-title">Выгодно!</h3>
             <div class="container">
-                <h3 class="section-title">Уютно!</h3>
-                <div class="row content">
+                <div class="content">
                     <img src="{% static 'images/student.png' %}" alt="Student" class="img-responsive student">
                     <p class="discount left-text">
                         <span class="caption">
@@ -677,17 +1743,17 @@
         </section>
         <section id="about">
             <div class="container text-center">
-                <div class="col-sm-4">
+                <div class="col">
                     <h3>Кафе на Павелецкой</h3>
                     <p class="address">2-й Павелецкий проезд, д.5, стр.2</p>
                     <p class="tel">+7 499 745 09 88</p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col">
                     <div class="clock"></div>
                     <p>Часы работы:</p>
                     <p class="hours">Пн-Вс 09:00-22:00</p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col">
                     <h3>Кафе на Новодмитровской</h3>
                     <p class="address">ул.Новодмитровская, д.5А, стр.3</p>
                     <p class="tel">+7 968 045 78 47</p>
@@ -697,21 +1763,19 @@
     </div>
     <footer class="page_footer">
         <div class="container">
-            <div class="col-sm-2">
-                <span class="copyright">
-                    © 2016 | PrimeFood
-                </span>
-            </div>
-            <div class="col-sm-offset-8 col-sm-2">
-                <span class="email">
-                    <a href="mailto:info@primefood.ru">info@primefood.ru</a>
-                </span>
-            </div>
+            <span class="copyright">
+                © 2016 | PrimeFood
+            </span>
+            <span class="email">
+                <a href="mailto:info@primefood.ru">info@primefood.ru</a>
+            </span>
         </div>
     </footer>
 </div>
+<a href="#" class="top">Top</a>
 <!--scripts-->
-<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
 <script src="{% static 'js/owl.carousel.js' %}"></script>
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/wow.min.js' %}"></script>
@@ -721,8 +1785,10 @@
         new WOW().init();
         $('a.smooth-scroll').on('click', function (event) {
             var $anchor = $(this);
+            var myoffset = window.matchMedia('(max-width: 320px)').matches ? 50 : 60;
+
             $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top
+                scrollTop: $($anchor.attr('href')).offset().top - myoffset
             }, 1500, 'easeInOutExpo');
             event.preventDefault();
         });
@@ -732,23 +1798,96 @@
             dots: false,
             rewind: true,
             autoplay: true,
-            autoplayTimeout: 15000,
+            autoplayTimeout: 10000,
             autoplayHoverPause: false,
             animateIn: 'fadeIn',
             animateOut: 'fadeOut',
         });
+        var dots = window.matchMedia('(max-width: 1020px)').matches;
         $('.gallery-wrap').owlCarousel({
-            margin:100,
-            loop:true,
-            autoWidth:true,
-            items:2,
-            center:true,
+            margin: 100,
+            loop: true,
+            autoWidth: true,
+            items: 2,
+            dots: dots,
+            nav: false,
+            center: true,
             autoplay: true,
             autoplayTimeout: 10000,
             autoplayHoverPause: true,
             lazyLoad: true,
             animateIn: 'bounceInRight',
             animateOut: 'bounceInLeft',
+        });
+        if (window.matchMedia('(max-width: 320px)').matches) {
+            var d = $('.detail');
+            d.addClass('owl-carousel')
+            d.owlCarousel({
+                items: 1,
+                nav: false,
+                dots: true,
+                rewind: true,
+                autoplay: true,
+                autoplayTimeout: 7500,
+                autoplayHoverPause: false,
+                animateIn: 'bounceInRight',
+                animateOut: 'bounceOutLeft',
+            });
+            $('#responcemenu').affix({
+                offset: {
+                    top: function () {
+                        return (this.top = $('.socials').position().top + $('.socials').outerHeight(true));
+                    },
+                    bottom: function () {
+                        return (this.bottom = $('footer').outerHeight(true));
+                    }
+                }
+            });
+            $('body').scrollspy({ target: '#responcemenu', offset: 50 })
+        } else {
+            $('#affix-menu').affix({
+                offset: {
+                    top: function () {
+                        return (this.top = $('.topbar').outerHeight(true));
+                    },
+                    bottom: function () {
+                        return (this.bottom = $('footer').outerHeight(true));
+                    }
+                }
+            });
+            $('body').scrollspy({ target: '#affix-menu', offset: 60 })
+        }
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('#menu').find('ul.menus a').first().tab('show');
+        $('#menu').find('.tab-content').first().find('.tab-pane').first().find('ul.nav a').first().tab('show');
+        $('#menu').find('ul.menus').on('shown.bs.tab', function (e) {
+            var anch = e.target.getAttribute('href');
+            $(anch).find('ul.nav a').first().first().tab('show');
+        });
+
+
+        $('.dropdown-menu').on('click', function (e) {
+            var title = e.target.innerHTML;
+            console.log(title);
+            $('.dropdown a.dropdown-toggle').text(title);
+        });
+
+
+        {#        BACK TO TOP#}
+        var offset = 500, offset_opacity = 1200, scroll_top_duration = 700, $back_to_top = $('.top');
+        $(window).on('scroll', function () {
+            ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('is-visible') : $back_to_top.removeClass('is-visible fade-out');
+            if ($(this).scrollTop() > offset_opacity) {
+                $back_to_top.addClass('fade-out');
+            }
+        });
+        $back_to_top.on('click', function (event) {
+            event.preventDefault();
+            $('body,html').animate({
+                    scrollTop: 0
+                }, scroll_top_duration
+            );
         });
     });
 </script>
