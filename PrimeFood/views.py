@@ -13,7 +13,7 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
     return render(request, 'landing_page.html', {
         'title': "PrimeFood",
-        # 'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
-        # 'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
+        'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
+        'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
         'menudata': menudata
     })
