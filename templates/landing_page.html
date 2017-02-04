@@ -149,7 +149,7 @@
             </ul>
             <div class="tab-content">
                 {% for title, value in menudata.items %}
-                    <div role="tabpanel" class="tab-pane fade vcenter" id="menu-{{ value.id }}">
+                    <div role="tabpanel" class="tab-pane fade" id="menu-{{ value.id }}">
                         <div class="categories">
                             <ul class="nav nav-pills nav-stacked">
                                 {% for c, items in value.items %}
@@ -162,8 +162,8 @@
                                     {% endif %}
                                 {% endfor %}
                             </ul>
-                        </div><!----><div class="table-area">
-                            <div class="tab-content vcenter">
+                        </div><!----><div class="table-area vcenter">
+                            <div class="tab-content ">
                                 {% for k, items in value.items %}
                                     <div role="tabpanel" class="tab-pane fade" id="category-{{ items.id }}">
                                         <table class="menu-items">
