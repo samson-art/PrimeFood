@@ -37,13 +37,13 @@
             </div>
             <img src="{% static 'images/logo.png' %}" alt="PrimeFood" class="img-responsive">
             <div class="socials">
-                <a href="https://www.instagram.com/" target="_blank">
+                <a href="https://www.instagram.com/prime4ood/" target="_blank">
                     <span class="icon instagram"></span>
                 </a>
-                <a href="https://vk.com/" target="_blank">
+                <a href="https://vk.com/prime4ood" target="_blank">
                     <span class="icon vk"></span>
                 </a>
-                <a href="https://www.facebook.com/" target="_blank">
+                <a href="https://www.facebook.com/prime4ood/" target="_blank">
                     <span class="icon facebook"></span>
                 </a>
             </div>
@@ -111,22 +111,15 @@
             <div class="detail">
                 <div class="details food row item">
                     <div class="icon food vcenter"></div><!--
-                --><p class="text vcenter">Вас ждёт богатое разнообразие наивкуснейших мясных, рыбных и овощных
-                    блюд, выпечка,
-                    десерты и напитки.</p>
+                --><p class="text vcenter">Вас ждёт богатое разнообразие наивкуснейших мясных, рыбных и овощных блюд, выпечка, десерты и напитки. А самое главное - вы можете заказать блюда, приготовленные на мангале!</p>
                 </div>
                 <div class="details meal row item">
                     <div class="icon meal vcenter"></div><!--
-                --><p class="text vcenter">Утром мы кормим полезными завтраками и подаем изысканный кофе
-                    по-восточному, днём к нам приходят за сытным ланчем, а вечером наше кафе превращается в
-                    место для вкусного ужина и задушевных бесед под бокал вина.</p>
+                --><p class="text vcenter">Утром мы кормим полезными завтраками и подаем изысканный кофе по-восточному, днём к нам приходят за сытным ланчем, а вечером наше кафе превращается в место для вкусного ужина и задушевных бесед под бокал вина.</p>
                 </div>
                 <div class="details canteen row item">
                     <div class="icon canteen vcenter"></div><!--
-                --><p class="text vcenter">С 8:00 до 17:00 Прайм Фуд работает как кафе-столовая, а с 17:00 до 22:00
-                    действует
-                    ресторанное обслуживание.
-                </p>
+                --><p class="text vcenter">С 8:00 до 17:00 Прайм Фуд работает как кулинарная лавка, а с 17:00 до 22:00 действует ресторанное обслуживание. Но в любое время вы можете оформить заказ на вкуснейшую рыбу или мясо на углях, которые наши повара приготовят для вас в тот же момент.</p>
                 </div>
             </div>
 
@@ -156,7 +149,7 @@
             </ul>
             <div class="tab-content">
                 {% for title, value in menudata.items %}
-                    <div role="tabpanel" class="tab-pane fade" id="menu-{{ value.id }}">
+                    <div role="tabpanel" class="tab-pane fade vcenter" id="menu-{{ value.id }}">
                         <div class="categories">
                             <ul class="nav nav-pills nav-stacked">
                                 {% for c, items in value.items %}
@@ -169,9 +162,8 @@
                                     {% endif %}
                                 {% endfor %}
                             </ul>
-                        </div>
-                        <div class="table-area">
-                            <div class="tab-content">
+                        </div><!----><div class="table-area">
+                            <div class="tab-content vcenter">
                                 {% for k, items in value.items %}
                                     <div role="tabpanel" class="tab-pane fade" id="category-{{ items.id }}">
                                         <table class="menu-items">

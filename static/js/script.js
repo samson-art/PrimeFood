@@ -29,7 +29,7 @@ $(document).ready(function () {
         nav: false,
         center: true,
         autoplay: true,
-        autoplayTimeout: 10000,
+        autoplayTimeout: 3000,
         autoplayHoverPause: true,
         lazyLoad: true,
         animateIn: 'bounceInRight',
