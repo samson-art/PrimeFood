@@ -853,9 +853,9 @@ h3.section-title:after {
 
 #menu .nav.menus .tooltip {
     width: 900px;
-    left: 0;
-    right: 0;
-    position: absolute;
+    margin: 0 auto;
+    position: relative;
+
 }
 
 #menu .nav.menus .tooltip .tooltip-inner {
