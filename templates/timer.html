@@ -10,27 +10,40 @@
     <style>
         body {
             text-align: center;
-            font-size: 18px;
+            font-size: 34px;
             padding-top: 10px;
+            
         }
-        .open strong.opendate {
-
+        .open .opendate {
+            font-size: 1.1em;
+	    text-decoration: underline;
         }
+	.remain {
+	    margin-top: 10px;
+	}
+        .remain #clock {
+            margin-top: 5px;
+	    font-size: 0.9em;
+        }
+	hr {
+	    max-width: 500px;
+	}      
     </style>
 </head>
 <body>
     <p class="open">
-        Мы откроемся: <strong class="opendate">{{ start_date }}</strong>
+        Мы ждем Вас <span class="opendate">{{ start_date }}</span>.
     </p>
-    <p>
-        Осталось: <br> <span id="clock"></span>
+    <hr>
+    <p class="remain">
+        Осталось: <br> <strong id="clock"></strong>.
     </p>
     <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
     <script>
         $(document).ready(function () {
             $('#clock').countdown("{{ start_date }}", function(event) {
-                $(this).html(event.strftime('%D days %H:%M:%S'));
+                $(this).html(event.strftime('%D д., %H:%M:%S'));
             });
         });
     </script>
