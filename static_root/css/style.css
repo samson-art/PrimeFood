@@ -851,6 +851,18 @@ h3.section-title:after {
     white-space: pre-wrap;
 }
 
+#menu .menus .tooltip .tooltip-inner {
+    text-align: justify;
+    font-family: OpenSans;
+    font-style: italic;
+    font-size: 16px;
+    padding: 10px;
+    white-space: pre-wrap;
+    max-width: 900px;
+    margin: 0 auto;
+
+}
+
 /*BUTTON TO TOP*/
 .top {
     display: inline-block;
