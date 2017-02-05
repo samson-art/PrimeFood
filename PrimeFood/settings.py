@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +26,7 @@ SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['prime-food.ru', 'www.prime-food.ru', 'demo.prime-food.ru', 'www.demo.prime-food.ru']
 
 # Application definition
 
@@ -116,14 +117,15 @@ LOGOUT_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
 LANGUAGE_CODE = 'ru-RU'
-
 TIME_ZONE = 'Europe/Moscow'
 
-USE_I18N = True
+USE_I18N = False
 
-USE_L10N = True
+# USE_L10N = True
 
 USE_TZ = True
+
+SESSION_COOKIE_DOMAIN = '.prime-food.ru'
 
 
 # Static files (CSS, JavaScript, Images)
