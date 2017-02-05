@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'subdomains',
     'photologue',
     'sortedm2m',
     'pytz',
@@ -60,15 +59,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'PrimeFood.urls'
 
-<<<<<<< HEAD
-SUBDOMAIN_URLCONFS = {
-    None: 'PrimeFood.urls.frontend',
-    'www': 'PrimeFood.urls.frontend',
-    'demo': 'PrimeFood.urls.demo'
-}
-
-=======
->>>>>>> 0f31cc367e7ea326c2e0e33eae65f957c120437d
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
