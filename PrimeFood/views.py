@@ -15,10 +15,18 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
 
     django_site = Site.objects.get_current()
-    if datetime.date.today() < datetime.date(2017, 2, 9) and request.META['HTTP_HOST'] == django_site.domain:
+    host = request.META['HTTP_HOST']
+    if host == django_site.domain :
+        return render(request, 'landing_page.html', {
+            'title': 'PrimeFood DEMO',
+            'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
+            'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
+            'menudata': menudata
+        })
+    if datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
-            'title': 'PrimeFood'
+            'title': 'PrimeFood',
         })
     else:
         return render(request, 'landing_page.html', {
