@@ -4,6 +4,7 @@ from photologue.models import Gallery
 from .models import *
 import datetime
 
+
 def landing_page(request):
     menu = Menu.objects.all().order_by('order')
     menucat = MenuCategory.objects.all().order_by('order')
@@ -13,7 +14,7 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
     if datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
-            'start_date': datetime.date.today(),
+            'start_date': datetime.date(2017, 2, 9),
             'title': 'PrimeFood'
         })
     else:

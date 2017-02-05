@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="ru">
 <head>
@@ -6,8 +7,32 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ title }}</title>
+    <style>
+        body {
+            text-align: center;
+            font-size: 18px;
+            padding-top: 10px;
+        }
+        .open strong.opendate {
+
+        }
+    </style>
 </head>
 <body>
-    Мы откроемся: <strong>{{ start_date }}</strong>
+    <p class="open">
+        Мы откроемся: <strong class="opendate">{{ start_date }}</strong>
+    </p>
+    <p>
+        Осталось: <br> <span id="clock"></span>
+    </p>
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#clock').countdown({% start_date.strftime('%Y/%m/%d') %}, function(event) {
+
+            });
+        });
+    </script>
 </body>
 </html>
