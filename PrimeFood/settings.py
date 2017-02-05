@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'subdomains',
     'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'subdomains',
     'photologue',
     'sortedm2m',
     'pytz',
@@ -62,9 +62,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'PrimeFood.urls'
 
 SUBDOMAIN_URLCONFS = {
-    None: 'PrimeFood.urls',
-    'www.demo': 'PrimeFood.urls.demo',
-    'www': 'PrimeFood.urls'
+    None: 'PrimeFood.urls.frontend',
+    'www': 'PrimeFood.urls.frontend',
+    'demo': 'PrimeFood.urls.demo'
 }
 
 TEMPLATES = [
