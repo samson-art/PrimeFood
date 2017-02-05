@@ -3,7 +3,7 @@ from django.forms.models import model_to_dict
 from photologue.models import Gallery
 from .models import *
 import datetime
-from django.contrib.sites.models import Site
+#
 
 
 def landing_page(request):
@@ -13,20 +13,20 @@ def landing_page(request):
     menudata = dict((m.title, {mc.title: {'id': mc.id, 'items':[model_to_dict(mi) for mi in menuitem if mi.menucategory == mc and mi.menucategory.menu == m]} for mc in menucat if mc.menu == m}) for m in menu)
     for m in menu:
         menudata[m.title].update({'id': m.id})
-    sd = request.META['HTTP_HOST'].split(".")[1]
-    if sd == 'demo':
-        return render(request, 'landing_page.html', {
-            'title': 'PrimeFood DEMO',
-            'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
-            'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
-            'menudata': menudata
-        })
-    if datetime.date.today() < datetime.date(2017, 2, 9):
+    sd = request.META['HTTP_HOST'].split(".")
+    if sd[0] == 'demo' or sd[1]:
+        if request.user.is_authenticated():
+            return render(request, 'landing_page.html', {
+                'title': 'PrimeFood DEMO',
+                'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
+                'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
+                'menudata': menudata
+            })
+
+    elif datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
-            'title': 'PrimeFood',
-            'sd': sd,
-            'd': request.META['HTTP_HOST']
+            'title': 'PrimeFood'
         })
     else:
         return render(request, 'landing_page.html', {
