@@ -170,7 +170,7 @@
                                             <table class="menu-items">
                                                 <tbody>
                                                     {% for i in menuitems %}
-                                                        {% if i.menucategory == c %}
+                                                        {% if i.menucategory == c and i.menucategory.menu == m %}
                                                             <tr data-toggle="tooltip" data-placement="bottom" title="{{ i.description }}">
                                                                 <td class="menu-item-name">
                                                                     {{ i.title }}
