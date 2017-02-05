@@ -2,3 +2,10 @@
 PrimeFood/__pycache__/
 myvenv
 .DS_Store
+.primefood-env
+*.sqlite3
+PrimeFood/migrations/__pycache__/
+photologue
+config
+docker-compose.yml
+Dockerfile
