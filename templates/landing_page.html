@@ -166,23 +166,25 @@
                             <div class="table-area">
                                 <div class="tab-content ">
                                     {% for c in menucats %}
-                                        <div role="tabpanel" class="tab-pane fade" id="category-{{ c.id }}">
-                                            <table class="menu-items">
-                                                <tbody>
-                                                    {% for i in menuitems %}
-                                                        {% if i.menucategory == c %}
-                                                            <tr data-toggle="tooltip" data-placement="bottom" title="{{ i.description }}">
-                                                                <td class="menu-item-name">
-                                                                    {{ i.title }}
-                                                                </td>
-                                                                <td>{{ i.amount }}</td>
-                                                                <td class="price">{{ i.price }}</td>
-                                                            </tr>
-                                                        {% endif %}
-                                                    {% endfor %}
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        {% if c.menu == m %}
+                                            <div role="tabpanel" class="tab-pane fade" id="category-{{ c.id }}">
+                                                <table class="menu-items">
+                                                    <tbody>
+                                                        {% for i in menuitems %}
+                                                            {% if i.menucategory == c %}
+                                                                <tr data-toggle="tooltip" data-placement="bottom" title="{{ i.description }}">
+                                                                    <td class="menu-item-name">
+                                                                        {{ i.title }}
+                                                                    </td>
+                                                                    <td>{{ i.amount }}</td>
+                                                                    <td class="price">{{ i.price }}</td>
+                                                                </tr>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>
