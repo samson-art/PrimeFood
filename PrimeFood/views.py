@@ -16,6 +16,9 @@ def landing_page(request):
 
     django_site = Site.objects.get_current()
     host = request.META['HTTP_HOST']
+    domain_parts = django_site.domain.split(".")
+    domain = ".".join(domain_parts[1:])
+    subdomain = request.META['HTTP_HOST'].replace(domain, '').replace('.', '').replace('www', '')
     if host == django_site.domain:
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
@@ -23,19 +26,20 @@ def landing_page(request):
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
             'menudata': menudata,
             'host': host,
-            'domain': django_site.domain
+            'domain': subdomain
         })
     if datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
             'title': 'PrimeFood',
             'host': host,
-            'domain': django_site.domain
+            'domain': subdomain
         })
     else:
         return render(request, 'landing_page.html', {
             'title': "PrimeFood",
             'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
-            'menudata': menudata
+            'menudata': menudata,
+            'domain': subdomain
         })
