@@ -14,8 +14,8 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
     sd = request.META['HTTP_HOST'].split(".")
     if datetime.date.today() < datetime.date(2017, 2, 9):
-        if request.user.is_authenticated():
-            if sd[0] == 'demo' or sd[1] == 'demo':
+        if sd[0] == 'demo' or sd[1] == 'demo':
+            if request.user.is_authenticated():
                 return render(request, 'landing_page.html', {
                     'title': 'PrimeFood DEMO',
                     'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
