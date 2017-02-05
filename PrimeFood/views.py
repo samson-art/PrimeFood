@@ -3,6 +3,7 @@ from django.forms.models import model_to_dict
 from photologue.models import Gallery
 from .models import *
 import datetime
+from django.contrib.sites.models import Site
 
 
 def landing_page(request):
@@ -12,7 +13,9 @@ def landing_page(request):
     menudata = dict((m.title, {mc.title: {'id': mc.id, 'items':[model_to_dict(mi) for mi in menuitem if mi.menucategory == mc and mi.menucategory.menu == m]} for mc in menucat if mc.menu == m}) for m in menu)
     for m in menu:
         menudata[m.title].update({'id': m.id})
-    if datetime.date.today() < datetime.date(2017, 2, 9):
+
+    django_site = Site.objects.get_current()
+    if datetime.date.today() < datetime.date(2017, 2, 9) and request.META['HTTP_HOST'] == django_site.domain:
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
             'title': 'PrimeFood'

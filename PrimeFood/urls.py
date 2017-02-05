@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
     url(r'^$', myviews.landing_page, name='landing_page'),
+    url(r'^demo/')
 ]
