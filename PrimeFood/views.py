@@ -13,7 +13,7 @@ def landing_page(request):
     menudata = dict((m.title, {mc.title: {'id': mc.id, 'items':[model_to_dict(mi) for mi in menuitem if mi.menucategory == mc and mi.menucategory.menu == m]} for mc in menucat if mc.menu == m}) for m in menu)
     for m in menu:
         menudata[m.title].update({'id': m.id})
-    sd = Site.objects.get_current().domain.split(".")[1]
+    sd = request.META['HTTP_HOST'].split(".")[1]
     if sd == 'demo':
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
@@ -26,7 +26,7 @@ def landing_page(request):
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
             'title': 'PrimeFood',
             'sd': sd,
-            'd': Site.objects.get_current().domain
+            'd': request.META['HTTP_HOST']
         })
     else:
         return render(request, 'landing_page.html', {
