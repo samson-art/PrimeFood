@@ -136,28 +136,28 @@
                         Меню
                     </a>
                     <ul class="dropdown-menu">
-                        {% for title, value in menudata.items %}
-                            <li><a href="#menu-{{ value.id }}" data-toggle="pill">{{ title }}</a></li>
+                        {% for m in menu %}
+                            <li><a href="#menu-{{ m.id }}" data-toggle="pill">{{ m.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
                 <ul class="nav nav-tabs menus" role="tablist">
-                    {% for title, value in menudata.items %}
-                        <li role="presentation"><a href="#menu-{{ value.id }}" aria-controls="menu-{{ value.id }}"
-                                                   role="tab" data-toggle="tab">{{ title }}</a></li>
+                    {% for m in menu %}
+                        <li role="presentation"><a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}"
+                                                   role="tab" data-toggle="tab">{{ m.title }}</a></li>
                     {% endfor %}
                 </ul>
                 <div class="tab-content">
-                    {% for title, value in menudata.items %}
-                        <div role="tabpanel" class="tab-pane fade" id="menu-{{ value.id }}">
+                    {% for m in menu %}
+                        <div role="tabpanel" class="tab-pane fade" id="menu-{{ m.id }}">
                             <div class="categories">
                                 <ul class="nav nav-pills nav-stacked">
-                                    {% for c, items in value.items %}
-                                        {% if c != 'id' %}
+                                    {% for c in menucats %}
+                                        {% if c.menu == m %}
                                             <li role="presentation" class="">
-                                                <a href="#category-{{ items.id }}"
-                                                   aria-controls="category-{{ items.id }}" role="tab"
-                                                   data-toggle="pill">{{ c }}</a>
+                                                <a href="#category-{{ c.id }}"
+                                                   aria-controls="category-{{ c.id }}" role="tab"
+                                                   data-toggle="pill">{{ c.title }}</a>
                                             </li>
                                         {% endif %}
                                     {% endfor %}
@@ -165,20 +165,21 @@
                             </div>
                             <div class="table-area">
                                 <div class="tab-content ">
-                                    {% for k, items in value.items %}
-                                        <div role="tabpanel" class="tab-pane fade" id="category-{{ items.id }}">
+                                    {% for c in menucats %}
+                                        <div role="tabpanel" class="tab-pane fade" id="category-{{ c.id }}">
                                             <table class="menu-items">
                                                 <tbody>
-                                                {% for i in items.items %}
-                                                    <tr data-toggle="tooltip" data-placement="bottom"
-                                                        title="{{ i.description }}">
-                                                        <td class="menu-item-name">
-                                                            {{ i.title }}
-                                                        </td>
-                                                        <td>{{ i.amount }}</td>
-                                                        <td class="price">{{ i.price }}</td>
-                                                    </tr>
-                                                {% endfor %}
+                                                    {% for i in menuitems %}
+                                                        {% if i.menucategory == c %}
+                                                            <tr data-toggle="tooltip" data-placement="bottom" title="{{ i.description }}">
+                                                                <td class="menu-item-name">
+                                                                    {{ i.title }}
+                                                                </td>
+                                                                <td>{{ i.amount }}</td>
+                                                                <td class="price">{{ i.price }}</td>
+                                                            </tr>
+                                                        {% endif %}
+                                                    {% endfor %}
                                                 </tbody>
                                             </table>
                                         </div>

@@ -19,6 +19,9 @@ class MenuCategory(models.Model):
     def __str__(self):
         return self.title
 
+    def get_by_menu(self, menu):
+        return MenuCategory.objects.filter(menu=menu)
+
 
 class MenuItem(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
@@ -34,3 +37,6 @@ class MenuItem(models.Model):
 
     def get_menu(self):
         return self.menucategory.menu
+
+    def get_by_category(self, mc):
+        return MenuItem.objects.filter(menucategory=mc)
