@@ -15,14 +15,12 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
     sd = request.META['HTTP_HOST'].split(".")
     if sd[0] == 'demo' or sd[1]:
-
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
             'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
             'menudata': menudata
         })
-
     elif datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
