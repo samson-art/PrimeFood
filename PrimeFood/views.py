@@ -16,12 +16,14 @@ def landing_page(request):
 
     django_site = Site.objects.get_current()
     host = request.META['HTTP_HOST']
-    if host == django_site.domain :
+    if host == django_site.domain:
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
             'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
-            'menudata': menudata
+            'menudata': menudata,
+            'host': host,
+            'domain': django_site.domain
         })
     if datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
