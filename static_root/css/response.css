@@ -501,6 +501,14 @@
         padding: 4px 10px;
     }
 
+    #menu .categories li.active::after {
+            position: absolute;
+            right: -10px;
+            top: -2px;
+            left: 242px;
+            bottom: 0;
+    }
+
     #menu .table-area {
         display: none;
     }
