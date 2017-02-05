@@ -13,11 +13,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from django.utils.translation import ugettext_lazy as _
 
-
 __PROD__ = False
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -28,7 +26,8 @@ SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['prime-food.ru', 'www.prime-food.ru', 'demo.prime-food.ru', 'www.demo.prime-food.ru', 'localhost', 'web']
+ALLOWED_HOSTS = ['prime-food.ru', 'www.prime-food.ru', 'demo.prime-food.ru', 'www.demo.prime-food.ru', 'localhost',
+                 'web']
 
 # Application definition
 
@@ -80,7 +79,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PrimeFood.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -90,7 +88,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -114,7 +111,9 @@ if __PROD__:
     SITE_URL = 'http://prime-food.ru'
     LOGIN_REDIRECT_URL = '/'
     LOGOUT_REDIRECT_URL = '/'
-
+    USE_I18N = True
+    USE_L10N = True
+    USE_TZ = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -122,23 +121,16 @@ if __PROD__:
 LANGUAGE_CODE = 'ru-RU'
 TIME_ZONE = 'Europe/Moscow'
 
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
 if __PROD__:
     SESSION_COOKIE_DOMAIN = '.prime-food.ru'
-else:
-    SESSION_COOKIE_DOMAIN = '.localhost'
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 STATIC_URL = '/static/'
 MEDIA_URL = '/images/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-# STATIC_ROOT = "/usr/src/app/static"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root/')
+
+if not __PROD__:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), os.path.join(BASE_DIR, 'static/images')]

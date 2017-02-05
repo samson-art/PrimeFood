@@ -5,7 +5,8 @@ myvenv
 .primefood-env
 *.sqlite3
 PrimeFood/migrations/__pycache__/
-photologue
+/photologue
 config
 docker-compose.yml
 Dockerfile
+log
