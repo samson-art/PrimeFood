@@ -15,7 +15,7 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
 
     django_site = Site.objects.get_current()
-    domain_parts = django_site.domain.split(".")
+    domain_parts = django_site.domain.split(".")[1]
     if domain_parts == 'demo':
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
