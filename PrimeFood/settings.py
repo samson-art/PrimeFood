@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'subdomains',
     'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
     'pytz',
-    'PrimeFood',
+    'PrimeFood'
 ]
 
 SITE_ID = 1
@@ -50,14 +51,21 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
 ROOT_URLCONF = 'PrimeFood.urls'
+
+SUBDOMAIN_URLCONFS = {
+    None: 'PrimeFood.urls',
+    'www.demo': 'PrimeFood.urls.demo',
+    'www': 'PrimeFood.urls'
+}
 
 TEMPLATES = [
     {
