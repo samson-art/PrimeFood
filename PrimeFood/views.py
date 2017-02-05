@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.forms.models import model_to_dict
 from photologue.models import Gallery
 from .models import *
 import datetime
-import re
 
 
 def landing_page(request):
