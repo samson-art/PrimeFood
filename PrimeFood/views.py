@@ -14,7 +14,7 @@ def landing_page(request):
     for m in menu:
         menudata[m.title].update({'id': m.id})
     sd = request.META['HTTP_HOST'].split(".")
-    if sd[0] == 'demo' or sd[1]:
+    if sd[0] == 'demo' or sd[1] == 'demo':
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
             'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
