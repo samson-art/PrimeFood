@@ -3,7 +3,6 @@ from django.forms.models import model_to_dict
 from photologue.models import Gallery
 from .models import *
 import datetime
-from django.contrib.auth import views as auth_views
 
 
 def landing_page(request):
