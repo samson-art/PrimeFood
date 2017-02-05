@@ -143,8 +143,9 @@
                 </div>
                 <ul class="nav nav-tabs menus" role="tablist">
                     {% for m in menu %}
-                        <li role="presentation" data-toggle="tooltip" title="{{ m.description }}"><a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}"
-                                                   role="tab" data-toggle="tab">{{ m.title }}</a></li>
+                        <li role="presentation" data-toggle="tooltip" data-placement="bottom" title="{{ m.description }}">
+                            <a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}" role="tab" data-toggle="tab">{{ m.title }}</a>
+                        </li>
                     {% endfor %}
                 </ul>
                 <div class="tab-content">
