@@ -23,14 +23,14 @@
         Мы откроемся: <strong class="opendate">{{ start_date }}</strong>
     </p>
     <p>
-        Осталось: <br> <span id="clock"></span>
+        Осталось: <br> <strong class="remain" id="clock"></strong>
     </p>
     <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
     <script>
         $(document).ready(function () {
             $('#clock').countdown("{{ start_date }}", function(event) {
-                $(this).html(event.strftime('%D days %H:%M:%S'));
+                $(this).html(event.strftime('%d дней %H:%M:%S'));
             });
         });
     </script>
