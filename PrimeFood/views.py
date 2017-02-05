@@ -15,32 +15,23 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
 
     django_site = Site.objects.get_current()
-    host = request.META['HTTP_HOST']
     domain_parts = django_site.domain.split(".")
-    domain = ".".join(domain_parts[1:])
-    subdomain = request.META['HTTP_HOST'].replace(domain, '').replace('.', '').replace('www', '')
-    if host == django_site.domain:
+    if domain_parts == 'demo':
         return render(request, 'landing_page.html', {
             'title': 'PrimeFood DEMO',
             'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
-            'menudata': menudata,
-            'host': host,
-            'domain': domain
+            'menudata': menudata
         })
     if datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
-            'title': 'PrimeFood',
-            'host': host,
-            'domain': domain,
-            'subdomain': subdomain
+            'title': 'PrimeFood'
         })
     else:
         return render(request, 'landing_page.html', {
             'title': "PrimeFood",
             'slidergallery': Gallery.objects.filter(title='Слайдер').first().photos.all(),
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
-            'menudata': menudata,
-            'domain': domain
+            'menudata': menudata
         })
