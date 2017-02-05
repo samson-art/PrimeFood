@@ -496,6 +496,11 @@
         padding: 10px 5px;
     }
 
+    #menu .categories li a {
+        line-height: 1.5;
+        padding: 4px 10px;
+    }
+
     #menu .table-area {
         display: none;
     }
