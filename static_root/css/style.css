@@ -674,7 +674,7 @@ h3.section-title:after {
     margin-top: 2px;
 }
 
-#menu .menus.nav li:not(:last-child) a:after {
+#menu .menus.nav li:not(:last-of-type) a:after {
     content: '';
     position: absolute;
     right: 0;
