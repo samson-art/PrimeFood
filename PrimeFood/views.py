@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.forms.models import model_to_dict
 from photologue.models import Gallery
 from .models import *
@@ -22,10 +22,11 @@ def landing_page(request):
                 'menudata': menudata
             })
         else:
-            return render(request, 'timer.html', {
-                'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
-                'title': 'PrimeFood'
-            })
+            # return render(request, 'timer.html', {
+            #     'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
+            #     'title': 'PrimeFood'
+            # })
+            redirect('prime-food.ru')
     elif datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
