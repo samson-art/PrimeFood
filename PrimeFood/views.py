@@ -11,7 +11,7 @@ def landing_page(request):
     menudata = dict((m.title, {mc.title: {'id': mc.id, 'items':[model_to_dict(mi) for mi in menuitem if mi.menucategory == mc and mi.menucategory.menu == m]} for mc in menucat if mc.menu == m}) for m in menu)
     for m in menu:
         menudata[m.title].update({'id': m.id})
-    if datetime.date.today() < datetime.date(2016, 2, 5):
+    if datetime.date.today() > datetime.date(2016, 2, 5):
         return render(request, 'timer.html', {
             'start_date': datetime.today(),
             'title': 'PrimeFood'

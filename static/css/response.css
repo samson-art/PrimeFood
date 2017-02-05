@@ -74,7 +74,7 @@
         max-width: 700px;
         width: 100%;
         margin-left: 20px;
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     #menu .table-area td:first-child {
@@ -228,7 +228,7 @@
     #menu .table-area {
         max-width: 543px;
         width: 100%;
-        overflow: hidden;
+        overflow-x: hidden;
         margin-left: 15px;
     }
 
