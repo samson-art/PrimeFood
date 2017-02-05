@@ -14,7 +14,7 @@ def landing_page(request):
         menudata[m.title].update({'id': m.id})
     if datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
-            'start_date': datetime.date(2017, 2, 9).strftime('%Y/%m/%d'),
+            'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
             'title': 'PrimeFood'
         })
     else:
