@@ -26,6 +26,7 @@ class MenuItem(models.Model):
     menucategory = models.ForeignKey(MenuCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=2000, blank=True, null=True)
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE, blank=True, null=True)
     order = models.IntegerField(blank=True, null=True, default=0)
 
     def __str__(self):
