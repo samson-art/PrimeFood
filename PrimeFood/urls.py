@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from PrimeFood.views import *
+from . import views as myviews
 
 urlpatterns = [
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
-    url(r'^$', landing_page, name='landing_page')
+    url(r'^$', myviews.landing_page, name='landing_page'),
 ]

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'photologue',
     'sortedm2m',
     'pytz',
-    'PrimeFood'
+    'PrimeFood',
 ]
 
 SITE_ID = 1
@@ -51,22 +51,24 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'subdomains.middleware.SubdomainURLRoutingMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware'
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'PrimeFood.urls'
 
+<<<<<<< HEAD
 SUBDOMAIN_URLCONFS = {
     None: 'PrimeFood.urls.frontend',
     'www': 'PrimeFood.urls.frontend',
     'demo': 'PrimeFood.urls.demo'
 }
 
+=======
+>>>>>>> 0f31cc367e7ea326c2e0e33eae65f957c120437d
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
