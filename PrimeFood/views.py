@@ -3,6 +3,7 @@ from django.forms.models import model_to_dict
 from photologue.models import Gallery
 from .models import *
 import datetime
+import re
 
 
 def landing_page(request):
@@ -22,7 +23,7 @@ def landing_page(request):
                 'menudata': menudata
             })
         else:
-            return redirect('/')
+            return redirect(re.sub('demo.', "", request.META['HTTP_HOST']))
     elif datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
