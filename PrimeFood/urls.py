@@ -19,6 +19,7 @@ from django.contrib import admin
 from . import views as myviews
 
 urlpatterns = [
+    url(r'^admin/logout/$', 'django.contrib.auth.views.logout',  {'next_page': 'http://prime-food.ru'}),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^photologue/', include('photologue.urls', namespace='photologue')),
