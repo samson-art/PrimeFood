@@ -23,9 +23,15 @@ def landing_page(request):
                     'menudata': menudata
                 })
             else:
-                show_cowntdown(request)
+                return render(request, 'timer.html', {
+                    'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
+                    'title': 'PrimeFood'
+                })
         else:
-            show_cowntdown(request)
+            return render(request, 'timer.html', {
+                'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
+                'title': 'PrimeFood'
+            })
     else:
         return render(request, 'landing_page.html', {
             'title': "PrimeFood",
@@ -33,10 +39,3 @@ def landing_page(request):
             'gallery': Gallery.objects.filter(title='Галлерея').first().photos.all(),
             'menudata': menudata
         })
-
-
-def show_cowntdown(request):
-    return render(request, 'timer.html', {
-        'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
-        'title': 'PrimeFood'
-    })
