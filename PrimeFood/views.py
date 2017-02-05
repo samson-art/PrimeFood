@@ -25,7 +25,8 @@ def landing_page(request):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
             'title': 'PrimeFood',
-            'sd': sd
+            'sd': sd,
+            'd': d
         })
     else:
         return render(request, 'landing_page.html', {
