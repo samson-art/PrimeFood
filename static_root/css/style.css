@@ -848,17 +848,15 @@ h3.section-title:after {
 #menu .tooltip .tooltip-inner {
     background-color: #6b3420;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.3);
-
     padding: 30px;
     max-width: 840px;
 }
 
 #menu .menus .tooltip .tooltip-inner {
-    max-width: 900px;
+    width: 900px;
     left: 0;
     right: 0;
     position: absolute;
-
 }
 
 /*BUTTON TO TOP*/
