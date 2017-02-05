@@ -709,7 +709,7 @@ h3.section-title:after {
     margin-left: 2px;
 }
 
-#menu .menus.nav li:last-child {
+#menu .menus.nav li:last-of-type {
     margin-right: 2px;
 }
 
@@ -822,7 +822,7 @@ h3.section-title:after {
     content: ' руб.';
 }
 
-.tooltip.in {
+#menu .tooltip.in {
     text-align: left;
     font-family: Ubuntu;
     font-size: 18px;
@@ -831,10 +831,10 @@ h3.section-title:after {
     font-stretch: normal;
     line-height: 1.44;
     color: #d9caa8;
-
     white-space: pre-wrap;
     opacity: 1;
     filter: alpha(opacity=100);
+    padding: 15px;
 }
 
 #menu .tooltip.bottom .tooltip-arrow {
@@ -848,11 +848,10 @@ h3.section-title:after {
 #menu .tooltip .tooltip-inner {
     background-color: #6b3420;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.3);
-    padding: 30px;
     max-width: 840px;
 }
 
-#menu .menus .tooltip .tooltip-inner {
+#menu .nav.menus .tooltip .tooltip-inner {
     width: 900px;
     left: 0;
     right: 0;
