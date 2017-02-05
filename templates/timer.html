@@ -29,8 +29,8 @@
     <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
     <script>
         $(document).ready(function () {
-            $('#clock').countdown({{ start_date }}, function(event) {
-
+            $('#clock').countdown("{{ start_date }}", function(event) {
+                $(this).html(event.strftime('%D days %H:%M:%S'));
             });
         });
     </script>
