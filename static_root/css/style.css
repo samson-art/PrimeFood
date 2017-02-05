@@ -695,7 +695,7 @@ h3.section-title:after {
 
 }
 
-#menu .menus.nav li:last-child a {
+#menu .menus.nav li:last-of-type a {
     -webkit-border-top-right-radius: 100px;
     -webkit-border-bottom-right-radius: 100px;
     -moz-border-radius-topright: 100px;
