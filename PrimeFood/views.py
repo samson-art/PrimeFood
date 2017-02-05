@@ -22,10 +22,6 @@ def landing_page(request):
                 'menudata': menudata
             })
         else:
-            # return render(request, 'timer.html', {
-            #     'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
-            #     'title': 'PrimeFood'
-            # })
             return redirect('http://prime-food.ru')
     elif datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
