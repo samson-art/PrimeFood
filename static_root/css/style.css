@@ -859,7 +859,8 @@ h3.section-title:after {
     padding: 10px;
     white-space: pre-wrap;
     max-width: 900px;
-    margin: 0 auto;
+    left: 0;
+    right: 0;
 
 }
 
