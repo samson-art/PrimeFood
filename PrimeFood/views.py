@@ -26,7 +26,7 @@ def landing_page(request):
             #     'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
             #     'title': 'PrimeFood'
             # })
-            redirect('prime-food.ru')
+            return redirect('prime-food.ru')
     elif datetime.date.today() < datetime.date(2017, 2, 9):
         return render(request, 'timer.html', {
             'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
