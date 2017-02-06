@@ -10,6 +10,4 @@ config
 docker-compose.yml
 Dockerfile
 log
-static_root
 static
-media_root

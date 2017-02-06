@@ -134,3 +134,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 if not __PROD__:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'media_root'), os.path.join(BASE_DIR, 'static_root')]
+
+if __PROD__:
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'static_root')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'media_root')
