@@ -143,7 +143,7 @@
                 </div>
                 <ul class="nav nav-tabs menus" role="tablist">
                     {% for m in menu %}
-                        <li role="presentation">
+                        <li role="presentation" data-toggle="tooltip" data-placement="bottom"  title="{{ m.description }}">
                             <a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}" role="tab" data-toggle="tab">{{ m.title }}</a>
                         </li>
                     {% endfor %}
@@ -151,7 +151,7 @@
                 <div class="tab-content">
                     {% for m in menu %}
                         <div role="tabpanel" class="tab-pane fade" id="menu-{{ m.id }}">
-                            <div class="categories">
+                            <div class="categories vcenter">
                                 <ul class="nav nav-pills nav-stacked">
                                     {% for c in menucats %}
                                         {% if c.menu == m %}
@@ -163,9 +163,9 @@
                                         {% endif %}
                                     {% endfor %}
                                 </ul>
-                            </div>
-                            <div class="table-area">
-                                <div class="tab-content ">
+                            </div><!--
+                            --><div class="table-area vcenter">
+                                <div class="tab-content">
                                     {% for c in menucats %}
                                         {% if c.menu == m %}
                                             <div role="tabpanel" class="tab-pane fade" id="category-{{ c.id }}">
