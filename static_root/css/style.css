@@ -288,17 +288,17 @@ header #slider.slider-wrap .slide {
 }
 
 #about .container {
-    /* width: 100%; */
-    /* max-width: 1030px; */
     padding: 0;
     position: absolute;
-    /* bottom: 88px; */
-    /* left: 0; */
-    /* right: 0; */
+    left: 0;
+    right: 0;
     top: 68px;
+    text-align: center;
+    width: 100%;
 }
 
 #about .container .col {
+    text-align: center;
     display: inline-block;
     width: 315px;
 }
@@ -779,14 +779,13 @@ h3.section-title:after {
     width: 100%;
     margin-left: 30px;
     overflow-x: hidden;
-    max-height: 440px;
+    max-height: 465px;
     overflow-y: scroll;
-    /* margin-top: 10px; */
-    /* margin-bottom: 10px; */
     -webkit-box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.5);
     box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.5);
     padding: 10px;
+    border-radius: 7px;
 }
 
 #menu .menu-items {
@@ -826,11 +825,10 @@ h3.section-title:after {
 }
 
 #menu .tooltip.in {
-    opacity: 1;
-    filter: alpha(opacity=100);
+
 }
 
-#menu .tooltip.bottom .tooltip-arrow {
+#menu .table-area .tooltip .tooltip-arrow {
     border-bottom-color: #6b3420;
     top: 0;
     left: 3em !important;
@@ -838,7 +836,7 @@ h3.section-title:after {
     border-width: 0 10px 10px;
 }
 
-#menu .tooltip .tooltip-inner {
+#menu .table-area .tooltip .tooltip-inner {
     background-color: #6b3420;
     box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.3);
     text-align: left;
@@ -852,6 +850,31 @@ h3.section-title:after {
     padding: 30px;
     max-width: 840px;
     white-space: pre-wrap;
+}
+
+#menu .menus .tooltip {
+    margin-top: 5px;
+}
+
+#menu .menus .tooltip .tooltip-arrow {
+    border-bottom-color: #441f11;
+    border-width: 0 10px 10px;
+}
+
+#menu .menus .tooltip .tooltip-inner {
+    max-width: 850px;
+    padding: 10px 20px;
+    font-family: SansSerif, serif;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+    font-stretch: normal;
+    line-height: 1.44;
+    white-space: pre-wrap;
+    color: rgba(255, 204, 0, 0.85);
+    background-color: #441f11;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.3);
 }
 
 /*BUTTON TO TOP*/

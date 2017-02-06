@@ -143,7 +143,7 @@
                 </div>
                 <ul class="nav nav-tabs menus" role="tablist">
                     {% for m in menu %}
-                        <li role="presentation" data-toggle="tooltip" data-placement="bottom"  title="{{ m.description }}">
+                        <li role="presentation" data-toggle="tooltip" data-placement="bottom" title="{{ m.description }}" data-trigger="hover">
                             <a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}" role="tab" data-toggle="tab">{{ m.title }}</a>
                         </li>
                     {% endfor %}
@@ -164,7 +164,7 @@
                                     {% endfor %}
                                 </ul>
                             </div><!--
-                            --><div class="table-area vcenter">
+                            --><div class="table-area">
                                 <div class="tab-content">
                                     {% for c in menucats %}
                                         {% if c.menu == m %}
@@ -231,7 +231,7 @@
             <div id="map-container"></div>
         </section>
         <section id="about">
-            <div class="container text-center">
+            <div class="container">
                 <div class="col">
                     <h3>Кафе на Павелецкой</h3>
                     <p class="address">2-й Павелецкий проезд, д.5, стр.2</p>
