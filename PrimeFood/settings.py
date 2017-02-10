@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 import os
 from django.utils.translation import ugettext_lazy as _
 
-__PROD__ = False
+__PROD__ = True
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['prime-food.ru', 'www.prime-food.ru', 'demo.prime-food.ru', 'www.demo.prime-food.ru', 'localhost',
                  'web']
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 if __PROD__ is True:
     SITE_URL = 'http://prime-food.ru'
-    LOGIN_REDIRECT_URL = '/'
+#    LOGIN_REDIRECT_URL = '/'
     LOGOUT_REDIRECT_URL = '/'
     USE_I18N = True
     USE_L10N = True
@@ -121,8 +121,8 @@ if __PROD__ is True:
 LANGUAGE_CODE = 'ru-RU'
 TIME_ZONE = 'Europe/Moscow'
 
-if __PROD__ is False:
-    SESSION_COOKIE_DOMAIN = '.prime-food.ru'
+#if __PROD__ is True:
+#    SESSION_COOKIE_DOMAIN = '.prime-food.ru'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/

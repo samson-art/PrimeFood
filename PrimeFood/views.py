@@ -12,9 +12,9 @@ def get_content():
 
 
 def landing_page(request):
-    if datetime.date.today() < datetime.date(2017, 2, 9):
+    if datetime.datetime.now() < datetime.datetime(2017, 2, 9, 12, 20):
         return render(request, 'timer.html', {
-            'start_date': str(datetime.date(2017, 2, 9).strftime('%Y/%m/%d')),
+            'start_date': str(datetime.datetime(2017, 2, 9, 12, 20).strftime('%Y/%m/%d %H:%M:%S')),
             'title': 'PrimeFood'
         })
     else:
