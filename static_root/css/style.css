@@ -745,6 +745,10 @@ h3.section-title:after {
     display: none;
 }
 
+#menu .dropdown .dropdown-menu li a:hover {
+    background: transparent;
+}
+
 #menu .categories ul.nav {
     padding-right: 10px;
 }
