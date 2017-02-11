@@ -132,12 +132,12 @@
             <div class="container">
                 <h3 class="section-title">Вкусно!</h3>
                 <div class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#drop-menu">
+                    <a class="dropdown-toggle" id="menudropdown"  data-toggle="dropdown" href="#dropdown-menu" data-target="#dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false">
                         Меню
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" aria-labelledby="menudropdown" role="tablist">
                         {% for m in menu %}
-                            <li><a href="#menu-{{ m.id }}" data-toggle="pill">{{ m.title }}</a></li>
+                            <li><a href="#menu-{{ m.id }}" data-toggle="tab" data-first="{{ m.first }}">{{ m.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
