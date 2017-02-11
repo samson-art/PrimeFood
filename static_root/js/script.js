@@ -78,8 +78,8 @@ $(document).ready(function () {
     }
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('#menu').find('ul.menus a').first().tab('show');
-    $('#menu').find('.tab-content').first().find('.tab-pane').first().find('ul.nav a').first().tab('show');
+    $('#menu').find('ul.menus a[data-first=True]').tab('show');
+    $('#menu').find('.categories[data-first=True]').first().find('a').first().tab('show');
     $('#menu').find('ul.menus').on('shown.bs.tab', function (e) {
         var anch = e.target.getAttribute('href');
         $(anch).find('ul.nav a').first().first().tab('show');

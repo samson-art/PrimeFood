@@ -144,14 +144,14 @@
                 <ul class="nav nav-tabs menus" role="tablist">
                     {% for m in menu %}
                         <li role="presentation" data-toggle="tooltip" data-placement="bottom" title="{{ m.description }}" data-trigger="hover">
-                            <a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}" role="tab" data-toggle="tab">{{ m.title }}</a>
+                            <a href="#menu-{{ m.id }}" aria-controls="menu-{{ m.id }}" role="tab" data-toggle="tab" data-first="{{ m.first }}">{{ m.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
                 <div class="tab-content">
                     {% for m in menu %}
                         <div role="tabpanel" class="tab-pane fade" id="menu-{{ m.id }}">
-                            <div class="categories">
+                            <div class="categories" data-first="{{ m.first }}">
                                 <ul class="nav nav-pills nav-stacked">
                                     {% for c in menucats %}
                                         {% if c.menu == m %}

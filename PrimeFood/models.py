@@ -5,9 +5,16 @@ class Menu(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(max_length=2000, blank=True, null=True)
     order = models.IntegerField(blank=True, null=True, default=0)
+    first = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
+
+    def first(self):
+       if self.first is True:
+           return 'first'
+       else:
+           return ''
 
 
 class MenuCategory(models.Model):

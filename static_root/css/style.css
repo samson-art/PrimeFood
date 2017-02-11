@@ -615,7 +615,13 @@ h3.section-title:after {
     background-color: #33211a;
     padding-top: 60px;
     border-top: 2px solid #583325;
-    /* padding-bottom: 60px; */
+    scrollbar-base-color: transparent;
+    scrollbar-3dlight-color: transparent;
+    scrollbar-highlight-color: transparent;
+    scrollbar-track-color: transparent;
+    scrollbar-arrow-color: transparent;
+    scrollbar-shadow-color: transparent;
+    scrollbar-dark-shadow-color: transparent;
 }
 /*SCROLLING*/
 #menu ::-webkit-scrollbar { 
