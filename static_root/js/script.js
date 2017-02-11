@@ -89,7 +89,7 @@ $(document).ready(function () {
         var anch = e.target.getAttribute('href');
         $(anch).find('ul.nav a').first().first().tab('show');
         $('#menu .dropdown a.dropdown-toggle').text($(this).text());
-        console.log(e.relatedTarget);
+//        console.log(e.relatedTarget);
     });
 
     $('#menu').find(".dropdown a[data-toggle='tab']").click(function (e) {
