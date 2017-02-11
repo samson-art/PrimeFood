@@ -15,6 +15,11 @@ body {
     max-width: 1440px;
     overflow: scroll;
     margin: auto;
+    background: #9a5315; /* Old browsers */
+    background: -moz-linear-gradient(left, #9a5315 0%, #392719 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #9a5315 0%,#392719 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #9a5315 0%,#392719 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9a5315', endColorstr='#392719',GradientType=1 ); /* IE6-9 */
 }
 
 .page {
