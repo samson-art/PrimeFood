@@ -10,6 +10,7 @@ class Menu(models.Model):
     class Meta:
         verbose_name = 'Menu'
         verbose_name_plural = 'Menu'
+        ordering = ['order']
 
     def __str__(self):
         return self.title
@@ -24,6 +25,7 @@ class MenuCategory(models.Model):
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
+        ordering = ['order']
 
     def __str__(self):
         return self.title
@@ -44,6 +46,7 @@ class MenuItem(models.Model):
     class Meta:
         verbose_name = 'Item'
         verbose_name_plural = 'Items'
+        ordering = ['order']
 
     def __str__(self):
         return self.title
