@@ -617,6 +617,10 @@ h3.section-title:after {
     border-top: 2px solid #583325;
     /* padding-bottom: 60px; */
 }
+/*SCROLLING*/
+#menu ::-webkit-scrollbar { 
+    display: none; 
+}
 
 #menu .container {
     max-width: 1140px;
