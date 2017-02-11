@@ -7,6 +7,10 @@ class Menu(models.Model):
     order = models.IntegerField(blank=True, null=True, default=0)
     first = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = 'Menu'
+        verbose_name_plural = 'Menu'
+
     def __str__(self):
         return self.title
 
@@ -16,6 +20,10 @@ class MenuCategory(models.Model):
     title = models.CharField(max_length=16)
     description = models.TextField(max_length=2000, blank=True, null=True)
     order = models.IntegerField(blank=True, null=True, default=0)
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.title
@@ -32,6 +40,10 @@ class MenuItem(models.Model):
     description = models.TextField(max_length=2000, blank=True, null=True)
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, blank=True, null=True)
     order = models.IntegerField(blank=True, null=True, default=0)
+
+    class Meta:
+        verbose_name = 'Item'
+        verbose_name_plural = 'Items'
 
     def __str__(self):
         return self.title

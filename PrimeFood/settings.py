@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2imq82yyp^8ma0_)pnihs--o5u&m8sb1!d8(c0@#=v=+3pp1c3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['prime-food.ru', 'www.prime-food.ru', 'demo.prime-food.ru', 'www.demo.prime-food.ru', 'localhost',
                  'web']
@@ -138,3 +138,5 @@ if __PROD__ is True:
     STATIC_ROOT = '/var/www/prime-food/static'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'media_root'), os.path.join(BASE_DIR, 'static_root')]
+
+GRAPPELLI_ADMIN_TITLE = 'PrimeFood'
