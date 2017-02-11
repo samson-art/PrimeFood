@@ -10,12 +10,6 @@ class Menu(models.Model):
     def __str__(self):
         return self.title
 
-    def first(self):
-       if self.first is True:
-           return 'first'
-       else:
-           return ''
-
 
 class MenuCategory(models.Model):
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE, default=None)
