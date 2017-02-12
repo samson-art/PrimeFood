@@ -98,14 +98,14 @@ class MenuItemAdmin(admin.ModelAdmin):
 
     def link_menucategory(self, obj):
         url = reverse('admin:PrimeFood_menucategory_change', args=[obj.menucategory.id])
-        return mark_safe('<a href="%s">"Show"</a>' % (url,))
+        return mark_safe('<a class="grp-button grp-default" href="%s">"Show"</a>' % (url,))
 
     link_menucategory.allow_tags = True
     link_menucategory.short_description = ''
 
     def link_menu(self, obj):
         url = reverse('admin:PrimeFood_menu_change', args=[obj.menu.id])
-        return mark_safe('<a href="%s">"Show"</a>' % (url,))
+        return mark_safe('<a class="grp-button grp-default" href="%s">"Show"</a>' % (url,))
 
     link_menu.allow_tags = True
     link_menu.short_description = ''
