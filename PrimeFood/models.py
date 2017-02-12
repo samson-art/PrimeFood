@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 
 class Menu(models.Model):
@@ -14,6 +16,12 @@ class Menu(models.Model):
 
     def __str__(self):
         return self.title
+
+    def display_categories(self):
+        return ', '.join(["<a href='%s'>%s</a>" % (reverse('admin:PrimeFood_menucategory_change', args=[c.id]), c.title) for c in MenuCategory.objects.filter(menu=self)])
+
+    display_categories.allow_tags = True
+    display_categories.short_description = 'Categories'
 
 
 class MenuCategory(models.Model):
@@ -33,6 +41,17 @@ class MenuCategory(models.Model):
     def get_by_menu(self, menu):
         return MenuCategory.objects.filter(menu=menu)
 
+    def display_items(self):
+        return ', '.join(['<a href="%s">%s</a>' % (reverse('admin:PrimeFood_menuitem_change', args=[i.id]), i.title) for i in MenuItem.objects.filter(menucategory=self)])
+
+    display_items.short_description = 'Items'
+    display_items.allow_tags = True
+
+    def show_menu(self):
+        return mark_safe('<a href="%s">%s</a>' % (reverse('admin:PrimeFood_menu_change', args=[self.menu.id]), self.menu.title))
+    show_menu.allow_tags = True
+    show_menu.short_description = 'Menu'
+
 
 class MenuItem(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
@@ -51,8 +70,10 @@ class MenuItem(models.Model):
     def __str__(self):
         return self.title
 
-    def get_menu(self):
-        return self.menucategory.menu
+    def display_menu_list(self):
+        return Menu.objects.all()
+    display_menu_list.short_description = 'Menu'
 
-    def get_by_category(self, mc):
-        return MenuItem.objects.filter(menucategory=mc)
+    def display_categories_list(self):
+        return MenuCategory.objects.filter(menu=self.menu)
+    display_categories_list.short_description = 'Categories'

@@ -780,3 +780,13 @@
         /* padding: 10px; */
     }
 }
+
+@media only screen and (max-width: 320px) {
+    #responcemenu button.navbar-toggle .icon-bar {
+        background-color: #dbd2bd;
+    }
+
+    #responcemenu .navbar-collapse li a {
+        color: #dbd2bd;
+    }
+}
